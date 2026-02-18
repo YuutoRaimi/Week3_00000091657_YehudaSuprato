@@ -1,11 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import Counter from './Counter';
 
 export default function App() {
+  const [count, setCount] = useState(0);
+  const hadleIncrement = () => {
+    setCount(count + 1);
+  };
+  const handleDecrement = () => {
+    setCount(count - 1);
+  };
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Counter value={count}
+        handleDecrement={handleDecrement}
+        handleIncrement={hadleIncrement}
+      />
     </View>
   );
 }
